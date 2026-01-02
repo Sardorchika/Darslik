@@ -135,47 +135,99 @@ function offerTest(topic) {
 
 
 function openTest(topicId) {
-    // 1. Ma'lumotni bazadan olish
+
     const data = faktlarBazasi[topicId];
+
     if (!data) return;
 
+
+
     const testBody = document.getElementById('testBody');
-    const modalContainer = document.querySelector('.test-card');
-    
-    // 2. Oyna o'lchamlarini siz xohlagandek o'rnatish (700px)
-    modalContainer.style.maxWidth = "700px"; 
-    modalContainer.style.width = "95%";
+
     document.getElementById('testModal').style.display = "flex";
-    
-    // 3. Kontentni siz yoqtirgan ko'rinishga o'xshatish
+
+
+
     let html = `
-        <h2 style="color:#00f2ff; text-align:center; margin-bottom:20px; font-size:28px; font-weight:bold; text-shadow: 0 0 15px rgba(0,242,255,0.4);">
+
+        <h2 style="color:#00f2ff; text-align:center; margin-bottom:25px; font-size:35px; text-transform:uppercase; letter-spacing:2px; text-shadow: 0 0 20px rgba(0,242,255,0.5);">
+
             ${data.nomi}
+
         </h2>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
-            <img src="${data.rasmlar[0]}" style="width:100%; height:180px; object-fit:cover; border-radius:15px; border:3px solid #38bdf8; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-            <img src="${data.rasmlar[1]}" style="width:100%; height:180px; object-fit:cover; border-radius:15px; border:3px solid #38bdf8; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-            <img src="${data.rasmlar[2]}" style="width:100%; height:180px; object-fit:cover; border-radius:15px; border:3px solid #38bdf8; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-            <img src="${data.rasmlar[3]}" style="width:100%; height:180px; object-fit:cover; border-radius:15px; border:3px solid #38bdf8; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+
+
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+
+            <img src="${data.rasmlar[0]}" style="width:100%; height:250px; object-fit:cover; border-radius:20px; border:3px solid #00f2ff; transition: 0.3s ease;">
+
+            <img src="${data.rasmlar[1]}" style="width:100%; height:250px; object-fit:cover; border-radius:20px; border:3px solid #00f2ff; transition: 0.3s ease;">
+
+            <img src="${data.rasmlar[2]}" style="width:100%; height:250px; object-fit:cover; border-radius:20px; border:3px solid #00f2ff; transition: 0.3s ease;">
+
+            <img src="${data.rasmlar[3]}" style="width:100%; height:250px; object-fit:cover; border-radius:20px; border:3px solid #00f2ff; transition: 0.3s ease;">
+
         </div>
 
-        <div style="background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9)); 
-                    padding: 25px; border-radius: 20px; font-size: 19px; color: #f8fafc; 
-                    line-height: 1.7; margin-bottom: 25px; border-left: 6px solid #00f2ff;
-                    box-shadow: inset 0 0 30px rgba(0,0,0,0.2);">
+
+
+        <div style="background: rgba(255, 255, 255, 0.07);
+
+                    padding: 30px;
+
+                    border-radius: 20px;
+
+                    font-size: 22px;
+
+                    color: #e2e8f0;
+
+                    line-height: 1.8;
+
+                    border-left: 8px solid #00f2ff;
+
+                    box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+
+                    margin-bottom: 30px;">
+
             ${data.text}
+
         </div>
 
-        <button onclick="closeTest()" style="background: linear-gradient(to right, #22c55e, #16a34a); 
-                    color:white; border:none; padding:18px; border-radius:15px; 
-                    cursor:pointer; width:100%; font-weight:bold; font-size:22px; 
-                    transition: transform 0.2s; box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3);">
+
+
+        <button onclick="closeTest()" style="
+
+            background: linear-gradient(90deg, #00f2ff, #0072ff);
+
+            color: white;
+
+            border: none;
+
+            padding: 20px 40px;
+
+            border-radius: 15px;
+
+            cursor: pointer;
+
+            width: 100%;
+
+            font-weight: bold;
+
+            font-size: 24px;
+
+            box-shadow: 0 10px 25px rgba(0, 114, 255, 0.4);
+
+            transition: transform 0.2s;">
+
             Tushundim, davom etamiz! 🚀
+
         </button>
+
     `;
-    
+
     testBody.innerHTML = html;
+
 }
 
 // Chest-plate tugmasi uchun (Robotni bossa ham fakt chiqishi uchun)
