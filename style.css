@@ -9,10 +9,6 @@ body {
     overflow-x: hidden;
     /* Brauzer kontentini 80% masshtabda ko'rsatadi */
     zoom: 80%; 
-    
-    /* Eski brauzerlar va Firefox uchun (ixtiyoriy) */
-    -moz-transform: scale(0.8);
-    -moz-transform-origin: 0 0;
 }
 
 /* Hero Section */
