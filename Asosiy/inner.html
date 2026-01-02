@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabiiy Fanlar | Raqamli Dunyo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="hero-minimal flex-header">
+        <div class="header-left">
+            <h1 class="fade-in-up">Bilimlar olamiga xush kelibsiz!</h1>
+            <p class="fade-in-delay">Qaysi sinf darsligini o'rganamiz?</p>
+        </div>
+    
+        <div class="header-right fade-in-up">
+            <div class="creator-card">
+                <div class="creator-image-box">
+                    <img src="image.png" alt="Yaratuvchi">
+                </div>
+                <div class="creator-details">
+                    <h3>Ism Familiya</h3>
+                    <p class="role">Loyiha muallifi</p>
+                    <p class="work">Toshkent shahridagi 23-maktab o'qituvchisi</p>
+                </div>
+            </div>
+        </div>
+    </header>>
+
+    <main class="grade-selection">
+        <div class="grade-card grade-5" onclick="window.location.href='/Mavzular_5_sinf/inner.html'">
+            <div class="badge neon-green">Yangi</div>
+            <div class="grade-content">
+                <div class="icon-circle">
+                    <i class="fas fa-leaf icon-main"></i>
+                </div>
+                <h2>5-sinf</h2>
+                <p>Tabiatning sirli mo'jizalari va o'simliklar dunyosini kashf eting.</p>
+            </div>
+            <div class="select-btn-wrapper">
+                <button class="select-btn">Darslikni ochish <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div class="grade-card grade-6" onclick="window.location.href='/Darslik_6/inner.html'">
+            <div class="grade-content">
+                <div class="icon-circle">
+                    <i class="fas fa-atom icon-main"></i>
+                </div>
+                <h2>6-sinf</h2>
+                <p>Moddalar tuzilishi, energiya va koinot sirlarini biz bilan o'rganing.</p>
+            </div>
+            <div class="select-btn-wrapper">
+                <button class="select-btn">Darslikni ochish <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <div class="robot-container" id="robotMascot">
+        <div class="robot-bubble" id="robotMsg">
+            <div id="welcomeZone">
+                <p>Salom o'quvchi! 😊 Bugun qaysi sinfni zabt etamiz?</p>
+                <button class="greet-btn" onclick="startHomeRobot()">Boshladik! 🚀</button>
+            </div>
+            <div id="mainText" style="display:none;"></div>
+        </div>
+
+        <div class="robot-body-wrapper" id="robotDraggable">
+            <div class="robot-head">
+                <div class="robot-face">
+                    <div class="eyes-box" style="display: flex;">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="mini-smile"></div>
+                </div>
+            </div>
+            <div class="robot-torso">
+                <div class="arm arm-left" id="leftArm">
+                    <div class="shoulder"></div>
+                    <div class="forearm"><div class="palm"></div></div>
+                </div>
+                <div class="arm arm-right">
+                    <div class="shoulder"></div>
+                    <div class="forearm"><div class="palm"></div></div>
+                </div>
+                <div class="core-energy"></div>
+            </div>
+            <div class="robot-shadow"></div>
+        </div>
+    </div>
+
+    <script src="robot.js"></script>
+    <script>
+        function startHomeRobot() {
+            const msg = document.getElementById('mainText');
+            const welcome = document.getElementById('welcomeZone');
+            const leftArm = document.getElementById('leftArm');
+            
+            leftArm.classList.add('is-raised', 'is-waving');
+            welcome.style.display = 'none';
+            msg.style.display = 'block';
+            msg.innerHTML = "Ajoyib tanlov! Men sizga darslik ichida hamrohlik qilaman! 🤖✨";
+            
+            setTimeout(() => {
+                leftArm.classList.remove('is-raised', 'is-waving');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

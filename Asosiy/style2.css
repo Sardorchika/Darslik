@@ -1,0 +1,103 @@
+:root {
+    --silver-light: #f1f5f9;
+    --silver-mid: #cbd5e1;
+    --silver-dark: #94a3b8;
+    --neon-energy: #00f2ff;
+    --robot-bg: #0f172a;
+}
+
+.robot-container {
+    position: fixed;
+    bottom: 30px;
+    left: 20px; /* Robot endi chap tomondan 20px uzoqlikda turadi */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    touch-action: none;
+}
+
+/* Robot pufakchasi (bubble) yo'nalishini ham biroz moslashtirish mumkin */
+.robot-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px; /* Dumchasi chaproqda bo'ladi */
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: var(--robot-bg) transparent transparent;
+}
+.robot-bubble {
+    background: var(--robot-bg);
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid var(--neon-energy);
+    width: 250px;
+    text-align: center;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    pointer-events: auto;
+}
+
+.robot-body-wrapper {
+    cursor: grab; /* Ushlash belgisi */
+    animation: float 4s ease-in-out infinite;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    touch-action: none; /* Mobil qurilmalarda surish uchun */
+}
+
+.robot-body-wrapper:active { cursor: grabbing; }
+
+/* Robot Detallari */
+.robot-head {
+    width: 90px; height: 75px;
+    background: linear-gradient(135deg, var(--silver-light), var(--silver-mid));
+    border-radius: 30px; border: 3px solid var(--silver-dark);
+    position: relative; z-index: 5;
+}
+
+.robot-face {
+    width: 70px; height: 50px;
+    background: var(--robot-bg);
+    border-radius: 15px; margin: 10px auto;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    border: 1px solid var(--neon-energy);
+}
+
+.eye { width: 14px; height: 14px; background: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 5px; }
+.eye-glow { width: 6px; height: 6px; background: var(--neon-energy); border-radius: 50%; box-shadow: 0 0 8px var(--neon-energy); }
+.mini-smile { width: 18px; height: 5px; border-bottom: 2px solid var(--neon-energy); border-radius: 50%; }
+
+.robot-torso {
+    width: 85px; height: 75px;
+    background: linear-gradient(135deg, var(--silver-mid), var(--silver-dark));
+    border-radius: 20px 20px 35px 35px; border: 3px solid var(--silver-dark);
+    margin: -12px auto 0; position: relative; z-index: 4;
+}
+
+/* Qo'llar va Animatsiya */
+.arm { position: absolute; top: 12px; width: 22px; height: 32px; z-index: -1; }
+.shoulder { width: 100%; height: 100%; background: var(--silver-mid); border: 2px solid var(--silver-dark); border-radius: 10px; }
+.forearm { width: 18px; height: 28px; background: var(--silver-mid); border: 2px solid var(--silver-dark); border-radius: 8px; position: absolute; top: 22px; left: 1px; transform-origin: top center; }
+.palm { width: 22px; height: 14px; background: var(--silver-light); border-radius: 50% 50% 5px 5px; position: absolute; bottom: -10px; left: -3px; border: 1px solid var(--silver-dark); }
+
+.arm-left { left: -20px; transform-origin: right top; transform: rotate(40deg); transition: transform 2s ease-in-out; }
+.arm-right { right: -20px; transform-origin: left top; transform: rotate(-40deg); }
+
+.is-raised { transform: rotate(105deg) !important; }
+@keyframes waveWest { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(45deg); } }
+.is-waving .forearm { animation: waveWest 0.6s ease-in-out infinite; }
+
+.core-energy { width: 30px; height: 10px; background: var(--neon-energy); margin: 25px auto; border-radius: 10px; box-shadow: 0 0 12px var(--neon-energy); }
+.robot-shadow { width: 70px; height: 8px; background: rgba(0,0,0,0.2); border-radius: 50%; margin: 8px auto; filter: blur(3px); }
+
+.greet-btn { background: var(--neon-energy); color: var(--robot-bg); border: none; padding: 8px 16px; border-radius: 10px; margin-top: 8px; cursor: pointer; font-weight: bold; }
+.close-msg { position: absolute; top: 5px; right: 8px; background: none; border: none; color: #64748b; cursor: pointer; font-size: 18px; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-sinf Tabiiy fanlar</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="back-btn" onclick="window.location.href='/Asosiy/inner.html'">← Orqaga</button>
+      <h2 class="title">5-sinf Tabiiy fanlar</h2>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰ Mundarija</button>
+  </header>
+
+  <section class="viewer">
+    <div class="pdf-wrapper" id="pdfWrapper">
+        <div class="robot-container" id="robotMascot">
+            <div class="robot-bubble" id="robotMsg">
+                <div id="welcomeZone">
+                    <p>Salom! Men sening aqlli yordamchingman. 😊</p>
+                    <button class="greet-btn" id="greetBtn" onclick="startLesson()">Salomlashish</button>
+                </div>
+                <div id="mainText" style="display:none;"></div>
+                <button class="close-msg" onclick="closeRobotMsg(event)">×</button>
+            </div>
+
+            <div class="robot-body-wrapper" id="robotDraggable">
+                <div class="robot-head">
+                    <div class="robot-face">
+                        <div class="eyes-box" style="display: flex;">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                        <div class="mini-smile"></div>
+                    </div>
+                </div>
+                <div class="robot-torso">
+                    <div class="arm arm-left" id="leftArm">
+                        <div class="shoulder"></div>
+                        <div class="forearm"><div class="palm"></div></div>
+                    </div>
+                    <div class="arm arm-right">
+                        <div class="shoulder"></div>
+                        <div class="forearm"><div class="palm"></div></div>
+                    </div>
+                    <div class="chest-plate">
+                        <div class="core-energy"></div>
+                    </div>
+                </div>
+                <div class="robot-shadow"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="testModal" class="test-container" style="display:none;">
+        <div class="test-card">
+            <button class="close-test-btn" onclick="closeTest()">×</button>
+            <div id="testBody"></div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="topics" id="topicsSidebar">
+      <div class="topics-header">
+        <h3>Mavzular</h3>
+      </div>
+      <div id="topicsList"></div>
+      <!-- <footer class="actions">
+        <button class="action-btn">Test</button>
+        <button class="action-btn">Topshiriq</button>
+        <button class="action-btn">Video</button>
+      </footer> -->
+    </aside>
+  </section>
+
+
+  <script src="faktlar.js"></script>
+  <script src="robot.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
